@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+function ValidateUser() {
+    var name= document.myForm.name.value;
+	var password=document.myForm.password.value;
+	 if(name==""){
+		 alert("Username cannot be empty");
+		 document.myForm.name.focus();
+		 return false;
+	 	}
+		 if(password=="")
+		 {
+			 alert("Password field is empty");
+			 document.myForm.password.focus();
+			 return false;
+		 }
+	 
+	      return(true);
+}
+</script>
+</head>
+<body bgcolor="yellow">
+<center>
+<h1>Cognizant</h1>
+<form method="post" action="LoginServlet" name="myForm">
+<p>User Name</p>
+<input type="text" name="name" required>
+<p>Password</p>
+<input type="password" name="password" required><br><br>
+<input type="Submit" value="Login" onclick="return ValidateUser()">
+<a href="UserRegistrationForm.html"><input type="button" value="Register here"></a>
+
+</form>
+</center>
+</body>
+</html>

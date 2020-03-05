@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script>
+function ValidateUser() {
+         var username= document.register.name.value;
+         var address=document.register.address.value;
+		 var password=document.register.password.value;
+		 var confirm=document.register.password1.value;
+		 re = /[0-9]/;
+		 rl= /[a-z]/;
+		 ru= /[A-Z]/;
+		 if(username==""){
+			 alert("Username cannot be empty");
+			 document.register.name.focus();
+			 return false;
+		 }
+		 
+		 if(password=="")
+		 {
+			 alert("Password field is empty")
+			 document.register.password.focus();
+			 return false;
+		 }
+		 
+		 if(address==""){
+			 alert("Address cannot be empty");
+			 document.register.address.focus();
+			 return false;
+		 }
+		 if(confirm==""){
+			 alert("Confirm Password cannot be empty");
+			 document.register.password1.focus();
+			 return false;
+		 }
+		 
+		 if(password.length<6)
+		 {
+			 alert("Password must be more than 6 characters")
+			  document.register.password.focus();
+			 return false;
+		 }
+		 
+		 if(!re.test(password)){
+			 alert("Password must have atleast 1 number")
+			  document.register.password.focus();
+			 return false;
+		 }
+		 if(!rl.test(password)){
+			 alert("Password must have atleast 1 lowercase")
+			 document.register.password.focus();
+			 return false;
+		 }
+		  if(!ru.test(password)){
+			 alert("Password must have atleast 1 UpperCase")
+			 document.register.password.focus();
+			 return false;
+		 }
+		  
+		  if(password!=confirm){
+			  alert("Password & Confirm Password doesnt match");
+			  document.register.password.focus();
+			  return false;
+		  }
+		  
+         return( true );
+      }
+
+
+  
+  </script>
+</head>
+<body bgcolor="Tomato">
+<center>
+<h1>Register Here</h1><form name="register" method="post" action="Register" >
+Username:<input type="text" name="name"><br><br>
+Address:<input type="text" name="address"><br><br>
+Password:<input type="password" name="password"><br><br>
+Confirm Password:<input type="password" name="password1"><br><br>
+<input type="Submit" value="Register" onclick="return ValidateUser()">
+</form>
+</center>
+</body>
+</html>
